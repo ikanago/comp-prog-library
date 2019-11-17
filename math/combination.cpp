@@ -5,12 +5,12 @@ struct Combination {
 private:
     vector<T> fac, finv;
 public:
-    explicit Combination(int size, int Mod): fac(size + 1), finv(size + 1) {
+    explicit Combination(int size): fac(size + 1), finv(size + 1) {
         fac[0] = 1;
         finv[0] = 1;
         for (int i = 0; i < size; i++) {
             fac[i + 1] = fac[i] * T(i + 1);
-            finv[i + 1] = finv[i] * T(i + 1).pow(Mod - 2);
+            finv[i + 1] = finv[i] * T(i + 1).inv();
         }
     }
 

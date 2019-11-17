@@ -24,7 +24,7 @@ struct ModInt {
     ModInt& operator+=(ModInt a) { v += a.v; if (v >= Mod) v -= Mod; return *this; }
     ModInt& operator-=(ModInt a) { v += Mod - a.v; if (v >= Mod) v -= Mod; return *this; }
     ModInt& operator*=(ModInt a) { v = 1LL * v * a.v % Mod; return *this; }
-    ModInt& operator/=(ModInt a) { return (*this) *= a.inv(); }
+    ModInt& operator/=(ModInt a) { assert(a.v != 0); return (*this) *= a.inv(); }
     ModInt operator+(ModInt a) const { return ModInt(v) += a; }
     ModInt operator-(ModInt a) const { return ModInt(v) -= a; }
     ModInt operator*(ModInt a) const { return ModInt(v) *= a; }

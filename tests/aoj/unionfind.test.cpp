@@ -4,18 +4,17 @@
 using namespace std;
 #include "../../data-structure/unionfind.hpp"
 
-int main() {
+int main()
+{
     int n, q;
     cin >> n >> q;
     UnionFind trees(n);
-    for (size_t i = 0; i < q; i++)
-    {
+    for (size_t i = 0; i < q; i++) {
         int c, x, y;
         cin >> c >> x >> y;
         if (c == 0) {
             trees.unite(x, y);
-        }
-        else {
+        } else {
             cout << (trees.same(x, y) ? 1 : 0) << "\n";
         }
     }

@@ -1,3 +1,5 @@
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/all/NTL_1_A"
+
 #include "../../math/factorize.hpp"
 #include <iostream>
 

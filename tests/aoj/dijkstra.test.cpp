@@ -13,7 +13,7 @@ int main() {
         cin >> t[i] >> e[i];
     }
 
-    Dijkstra dijkstra(n + 1);
+    Dijkstra<long> dijkstra(n + 1);
     for (size_t i = 0; i < r; i++)
     {
         int a, b, c;
@@ -28,7 +28,6 @@ int main() {
         dijkstra.add(n, i, t[i]);
     }
     auto d = dijkstra.solve(n);
-    for (auto& x : d) cout << x << " ";
     
     long ans = 0;
     for (size_t i = 0; i < n; i++)

@@ -2,15 +2,16 @@
 #include <queue>
 #include <vector>
 
+template <typename T>
 class Dijkstra {
 private:
     struct Edge {
         int to;
-        int cost;
+        T cost;
     };
     std::vector<std::vector<Edge>> G;
-    std::vector<int> d;
-    using PII = std::pair<int, int>;
+    std::vector<T> d;
+    using P = std::pair<T, int>;
 
 public:
     int n;
@@ -19,7 +20,7 @@ public:
     {
         n = size;
         G.resize(n, std::vector<Edge>());
-        d.resize(n, std::numeric_limits<int>::max());
+        d.resize(n, std::numeric_limits<T>::max());
     }
 
     // `from` and `to` must be 0-indexed.
@@ -29,10 +30,10 @@ public:
         G[from].push_back(e);
     }
 
-    std::vector<int> solve(int start)
+    std::vector<T> solve(int start)
     {
         // priority queue which stores { minimum cost to Edge i, Edge i}
-        std::priority_queue<PII, std::vector<PII>, std::greater<PII>> pq;
+        std::priority_queue<P, std::vector<P>, std::greater<P>> pq;
         d[start] = 0;
         pq.push({ 0, start });
         while (!pq.empty()) {

@@ -2,9 +2,10 @@
 #include <queue>
 #include <vector>
 
+// 最短経路を時間計算量`O(|E|logV)`で求める．
+// 負の辺がある場合には使えない．
 template <typename T>
 class Dijkstra {
-private:
     struct Edge {
         int to;
         T cost;
@@ -16,20 +17,22 @@ private:
 public:
     int n;
 
-    Dijkstra(int size)
+    explicit Dijkstra(int size)
     {
         n = size;
         G.resize(n, std::vector<Edge>());
         d.resize(n, std::numeric_limits<T>::max());
     }
 
-    // `from` and `to` must be 0-indexed.
+    // `from` から `to` へコスト `cost` の辺を張る．
+    // `from` と `to` は 0-indexed でなければならない.
     void add(int from, int to, int cost)
     {
         Edge e = { to, cost };
         G[from].push_back(e);
     }
 
+    // 最短経路を求める．
     std::vector<T> solve(int start)
     {
         // priority queue which stores { minimum cost to Edge i, Edge i}

@@ -1,9 +1,10 @@
 #include <vector>
 
-struct UnionFind {
+class UnionFind {
     std::vector<int> _root;
     std::vector<int> _size;
 
+public:
     explicit UnionFind(int n) : _root(n) {
         for (int i = 0; i < n; i++)
             _root[i] = i;

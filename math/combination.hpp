@@ -1,11 +1,14 @@
 // template typename `T` is supposed to be ModInt.
 
-template<typename T>
-struct Combination {
-private:
+template <typename T>
+class Combination {
     vector<T> fac, finv;
+
 public:
-    explicit Combination(int size): fac(size + 1), finv(size + 1) {
+    explicit Combination(int size)
+        : fac(size + 1)
+        , finv(size + 1)
+    {
         fac[0] = 1;
         finv[0] = 1;
         for (int i = 0; i < size; i++) {
@@ -14,18 +17,24 @@ public:
         }
     }
 
-    T C(int n, int r) const {
-        if (r < 0 || n < r) return T(0);
+    T C(int n, int r) const
+    {
+        if (r < 0 || n < r)
+            return T(0);
         return fac[n] * finv[r] * finv[n - r];
     }
 
-    T P(int n, int r) const {
-        if (r < 0 || n < r) return T(0);
+    T P(int n, int r) const
+    {
+        if (r < 0 || n < r)
+            return T(0);
         return fac[n] * finv[n - r];
     }
 
-    T H(int n, int r) const {
-        if (r < 0 || n < r) return T(0);
+    T H(int n, int r) const
+    {
+        if (r < 0 || n < r)
+            return T(0);
         return C(n + r - 1, r);
     }
 };

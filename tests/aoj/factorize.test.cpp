@@ -14,7 +14,8 @@ int main()
     cout << n << ":";
     for (const auto& p : factorized) {
         for (size_t i = 0; i < p.second; i++) {
-            cout << p.first << " ";
+            cout << " " << p.first;
         }
     }
+    cout << "\n";
 }

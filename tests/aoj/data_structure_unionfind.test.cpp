@@ -2,7 +2,7 @@
 
 #include <iostream>
 using namespace std;
-#include "../../data-structure/unionfind.hpp"
+#include "../../data_structure/unionfind.hpp"
 
 int main()
 {

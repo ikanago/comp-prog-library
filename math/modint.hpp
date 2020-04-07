@@ -72,8 +72,8 @@ struct ModInt {
     bool operator!=(const ModInt a) const { return v != a.v; }
     bool operator<(const ModInt a) const { return v < a.v; }
 
-    friend std::ostream& operator<<(std::ostream& os, const ModInt& a) const { return os << a.v; }
-    friend std::istream& operator>>(std::istream& is, ModInt& a) const
+    friend std::ostream& operator<<(std::ostream& os, const ModInt& a) { return os << a.v; }
+    friend std::istream& operator>>(std::istream& is, ModInt& a)
     {
         int val;
         is >> val;

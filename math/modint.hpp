@@ -13,7 +13,7 @@ struct ModInt {
         if (v < 0) v += Mod;
     }
 
-    ModInt pow(int k) {
+    ModInt pow(int k) const {
         ModInt res(1), x(v);
         while(k) {
             if (k % 2 == 1) res *= x;
@@ -34,7 +34,7 @@ struct ModInt {
     ModInt operator-(ModInt a) const { return ModInt(v) -= a; }
     ModInt operator*(ModInt a) const { return ModInt(v) *= a; }
     ModInt operator/(ModInt a) const { return ModInt(v) /= a; }
-    ModInt operator-() { return ModInt(-v); }
+    ModInt operator-() const { return ModInt(-v); }
     bool operator==(const ModInt a) const { return v == a.v; }
     bool operator!=(const ModInt a) const { return v != a.v; }
     bool operator<(const ModInt a) const { return v < a.v; }

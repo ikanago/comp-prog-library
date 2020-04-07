@@ -1,41 +1,39 @@
 #include <vector>
 
-template <typename T>
-// template typename `T` is supposed to be ModInt.
+// 
+template <int Mod>
 class Combination {
-    std::vector<T> fac, finv;
+    std::vector<long> fac, inv, finv;
 
 public:
-    explicit Combination(int size)
+    explicit Combination(long size)
         : fac(size + 1)
+        , inv(size + 1)
         , finv(size + 1)
     {
-        fac[0] = 1;
-        finv[0] = 1;
-        for (int i = 0; i < size; i++) {
-            fac[i + 1] = fac[i] * T(i + 1);
-            finv[i + 1] = finv[i] * T(i + 1).inv();
+        fac[0] = fac[1] = 1;
+        inv[1] = 1;
+        finv[0] = finv[1] = 1;
+        for (int i = 2; i <= size; i++) {
+            fac[i] = fac[i - 1] * i % Mod;
+            inv[i] = Mod - inv[Mod % i] * (Mod / i) % Mod;
+            finv[i] = finv[i - 1] * inv[i] % Mod;
         }
     }
 
-    T C(int n, int r) const
+    // `nCr` を求める
+    int C(int n, int r) const
     {
         if (r < 0 || n < r)
-            return T(0);
-        return fac[n] * finv[r] * finv[n - r];
+            return 0;
+        return fac[n] * (finv[r] * finv[n - r] % Mod) % Mod;
     }
 
-    T P(int n, int r) const
+    // `nPr` を求める
+    int P(int n, int r) const
     {
         if (r < 0 || n < r)
-            return T(0);
-        return fac[n] * finv[n - r];
-    }
-
-    T H(int n, int r) const
-    {
-        if (r < 0 || n < r)
-            return T(0);
-        return C(n + r - 1, r);
+            return 0;
+        return fac[n] * finv[n - r] % Mod;
     }
 };

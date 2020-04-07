@@ -1,3 +1,8 @@
+#ifndef _MODINT_H_
+#define _MODINT_H_
+#include <iostream>
+#include <assert.h>
+
 template<int Mod>
 struct ModInt {
     int v;
@@ -11,7 +16,7 @@ struct ModInt {
     ModInt pow(int k) {
         ModInt res(1), x(v);
         while(k) {
-            if (k & 1) res *= x;
+            if (k % 2 == 1) res *= x;
             x *= x;
             k >>= 1;
         }
@@ -42,3 +47,5 @@ struct ModInt {
         return is;
     }
 };
+
+#endif // #ifndef _MODINT_H_

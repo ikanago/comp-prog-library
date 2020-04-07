@@ -4,7 +4,8 @@
 #include <iostream>
 constexpr const int MOD = (int)1e9 + 7;
 
-int main() {
+int main()
+{
     int n, k;
     std::cin >> n >> k;
     Combination<ModInt<MOD>> com(1000);

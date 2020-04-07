@@ -1,8 +1,9 @@
-// template typename `T` is supposed to be ModInt.
+#include <vector>
 
 template <typename T>
+// template typename `T` is supposed to be ModInt.
 class Combination {
-    vector<T> fac, finv;
+    std::vector<T> fac, finv;
 
 public:
     explicit Combination(int size)

@@ -1,6 +1,7 @@
 #include <vector>
 
-// 
+// 組み合わせ，順列を求める
+// 前処理 `O(n)`，クエリ `O(1)` ただし，`n < Mod`
 template <int Mod>
 class Combination {
     std::vector<long> fac, inv, finv;

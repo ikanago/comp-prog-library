@@ -1,4 +1,4 @@
-#define PROBLRM "https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A"
 #include "../../math/modint.hpp"
 #include <iostream>
 constexpr const int MOD = (int)1e9 + 7;
